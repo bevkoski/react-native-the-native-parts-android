@@ -9,14 +9,18 @@ import android.provider.Settings;
 import android.view.KeyEvent;
 
 import com.facebook.react.ReactInstanceManager;
+import com.facebook.react.ReactPackage;
 import com.facebook.react.ReactRootView;
 import com.facebook.react.common.LifecycleState;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ReactActivity extends Activity implements DefaultHardwareBackBtnHandler {
 
-  final private static String REACT_MODULE_NAME = "TheNativeParts";
+  private static final String REACT_MODULE_NAME = "TheNativeParts";
 
   private ReactRootView mReactRootView;
   private ReactInstanceManager mReactInstanceManager;
@@ -33,12 +37,16 @@ public class ReactActivity extends Activity implements DefaultHardwareBackBtnHan
       }
     }
 
+    List<ReactPackage> packages = new ArrayList<>();
+    packages.add(new MainReactPackage());
+    packages.add(new CommunicationPackage());
+
     mReactRootView = new ReactRootView(ReactActivity.this);
     mReactInstanceManager = ReactInstanceManager.builder()
       .setApplication(getApplication())
       .setBundleAssetName("index.android.bundle")
       .setJSMainModulePath("index.android")
-      .addPackage(new MainReactPackage())
+      .addPackages(packages)
       .setUseDeveloperSupport(BuildConfig.DEBUG)
       .setInitialLifecycleState(LifecycleState.RESUMED)
       .build();
