@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">The Native Parts</string>
+    <string name="hello">Hello from the native side!</string>
     <string name="navigate_to_react">Navigate to React activity</string>
 </resources>
