@@ -47,7 +47,7 @@ class Main extends React.Component {
             <Text style={styles.buttonText}>TRIGGER REACT ALERT FROM NATIVE</Text>
           </View>
         </TouchableNativeFeedback>
-        <CustomCounter style={styles.counter} />
+        <CustomCounter numberColor={'black'} style={styles.counter} />
       </View>
     )
   }

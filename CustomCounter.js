@@ -1,10 +1,13 @@
 import React from 'react'
-import { requireNativeComponent } from 'react-native'
+import { requireNativeComponent, ViewPropTypes } from 'react-native'
+import PropTypes from 'prop-types'
 
-const RCTCounterView = requireNativeComponent('RCTCounterView', null)
+const RCTCounterView = requireNativeComponent('RCTCounterView', {
+  name: 'CustomCounter',
+  propTypes: {
+    numberColor: PropTypes.string,
+    ...ViewPropTypes,
+  },
+})
 
-export default class extends React.Component {
-  render() {
-    return <RCTCounterView {...this.props} />
-  }
-}
+export default RCTCounterView

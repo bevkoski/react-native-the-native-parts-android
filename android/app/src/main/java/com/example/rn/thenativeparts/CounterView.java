@@ -29,6 +29,10 @@ public class CounterView extends FrameLayout implements View.OnClickListener {
     mCountTextView.setText(String.valueOf(count));
   }
 
+  public void setCountColor(int color) {
+    mCountTextView.setTextColor(color);
+  }
+
   @Override
   public void onClick(View view) {
     count++;
