@@ -40,6 +40,7 @@ public class ReactActivity extends Activity implements DefaultHardwareBackBtnHan
     List<ReactPackage> packages = new ArrayList<>();
     packages.add(new MainReactPackage());
     packages.add(new CommunicationPackage());
+    packages.add(new CounterViewPackage());
 
     mReactRootView = new ReactRootView(ReactActivity.this);
     mReactInstanceManager = ReactInstanceManager.builder()

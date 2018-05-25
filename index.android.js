@@ -10,6 +10,8 @@ import {
   DeviceEventEmitter,
 } from 'react-native'
 
+import CustomCounter from './CustomCounter';
+
 class Main extends React.Component {
 
   _showToast = () => NativeModules.Toast.show(
@@ -45,6 +47,7 @@ class Main extends React.Component {
             <Text style={styles.buttonText}>TRIGGER REACT ALERT FROM NATIVE</Text>
           </View>
         </TouchableNativeFeedback>
+        <CustomCounter style={styles.counter} />
       </View>
     )
   }
@@ -73,7 +76,12 @@ var styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: 'sans-serif-condensed',
     color: 'black',
-  }
+  },
+  counter: {
+    width: 150,
+    height: 150,
+    backgroundColor: 'lightgray',
+  },
 })
 
 AppRegistry.registerComponent('TheNativeParts', () => Main)
