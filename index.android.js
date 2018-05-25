@@ -23,6 +23,12 @@ class Main extends React.Component {
 
   _showAlert = message => Alert.alert(message)
 
+  _onCountChange = event => {
+    if (this._countFirstChanged) return
+    this._countFirstChanged = true
+    Alert.alert(`The counter changed for the first time!\nIts value is ${event.nativeEvent.count}.`)
+  }
+
   componentWillMount() {
     DeviceEventEmitter.addListener(NativeModules.Alert.EVENT_SHOW, this._showAlert)
   }
@@ -47,7 +53,7 @@ class Main extends React.Component {
             <Text style={styles.buttonText}>TRIGGER REACT ALERT FROM NATIVE</Text>
           </View>
         </TouchableNativeFeedback>
-        <CustomCounter numberColor={'black'} style={styles.counter} />
+        <CustomCounter onCountChange={this._onCountChange} numberColor={'black'} style={styles.counter} />
       </View>
     )
   }
@@ -80,6 +86,7 @@ var styles = StyleSheet.create({
   counter: {
     width: 150,
     height: 150,
+    margin: 15,
     backgroundColor: 'lightgray',
   },
 })

@@ -6,6 +6,11 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.ReactContext;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.uimanager.events.RCTEventEmitter;
+
 public class CounterView extends FrameLayout implements View.OnClickListener {
 
   private int count;
@@ -37,6 +42,15 @@ public class CounterView extends FrameLayout implements View.OnClickListener {
   public void onClick(View view) {
     count++;
     mCountTextView.setText(String.valueOf(count));
+
+    WritableMap event = Arguments.createMap();
+    event.putInt("count", count);
+
+    ReactContext reactContext = (ReactContext) getContext();
+    reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
+      getId(),
+      "onCountChange",
+      event);
   }
 
   @Override

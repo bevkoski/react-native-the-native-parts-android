@@ -2,9 +2,12 @@ package com.example.rn.thenativeparts;
 
 import android.graphics.Color;
 
+import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
+
+import java.util.Map;
 
 public class CounterViewManager extends SimpleViewManager<CounterView> {
 
@@ -24,6 +27,14 @@ public class CounterViewManager extends SimpleViewManager<CounterView> {
   public void setNumberColor(CounterView view, String color) {
     int parsedColor = Color.parseColor(color);
     view.setCountColor(parsedColor);
+  }
+
+  @Override
+  public Map<String, Object> getExportedCustomDirectEventTypeConstants() {
+    return MapBuilder.of(
+      "onCountChange",
+      (Object) MapBuilder.of("registrationName", "onCountChange")
+    );
   }
 
 }
