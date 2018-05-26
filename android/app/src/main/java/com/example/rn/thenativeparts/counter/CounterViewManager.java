@@ -1,4 +1,4 @@
-package com.example.rn.thenativeparts;
+package com.example.rn.thenativeparts.counter;
 
 import android.graphics.Color;
 

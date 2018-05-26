@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.KeyEvent;
 
+import com.example.rn.thenativeparts.communication.CommunicationPackage;
+import com.example.rn.thenativeparts.counter.CounterViewPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.ReactRootView;

@@ -1,4 +1,4 @@
-package com.example.rn.thenativeparts;
+package com.example.rn.thenativeparts.communication;
 
 import android.widget.Toast;
 

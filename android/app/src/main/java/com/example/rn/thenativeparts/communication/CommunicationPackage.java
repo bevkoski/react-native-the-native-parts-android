@@ -1,4 +1,4 @@
-package com.example.rn.thenativeparts;
+package com.example.rn.thenativeparts.communication;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
@@ -9,20 +9,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class CounterViewPackage implements ReactPackage {
+public class CommunicationPackage implements ReactPackage {
 
   @Override
   public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-    List<ViewManager> managers = new ArrayList<>();
-
-    managers.add(new CounterViewManager());
-
-    return managers;
+    return Collections.emptyList();
   }
 
   @Override
   public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-    return Collections.emptyList();
+    List<NativeModule> modules = new ArrayList<>();
+
+    modules.add(new ToastModule(reactContext));
+    modules.add(new AlertModule(reactContext));
+
+    return modules;
   }
 
 }

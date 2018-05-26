@@ -1,4 +1,4 @@
-package com.example.rn.thenativeparts;
+package com.example.rn.thenativeparts.communication;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
