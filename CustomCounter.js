@@ -1,8 +1,7 @@
-import React from 'react'
 import { requireNativeComponent, ViewPropTypes } from 'react-native'
 import PropTypes from 'prop-types'
 
-const RCTCounterView = requireNativeComponent('RCTCounterView', {
+const CustomCounter = requireNativeComponent('RCTCounterView', {
   name: 'CustomCounter',
   propTypes: {
     numberColor: PropTypes.string,
@@ -10,4 +9,4 @@ const RCTCounterView = requireNativeComponent('RCTCounterView', {
   },
 })
 
-export default RCTCounterView
+export default CustomCounter

@@ -1,13 +1,13 @@
 import React from 'react'
 import {
-  AppRegistry,
-  StyleSheet,
   View,
   Text,
   TouchableNativeFeedback,
   Alert,
+  StyleSheet,
   NativeModules,
   DeviceEventEmitter,
+  AppRegistry,
 } from 'react-native'
 
 import CustomCounter from './CustomCounter';
@@ -60,18 +60,17 @@ class Main extends React.Component {
 
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
   hello: {
+    margin: 15,
     fontSize: 26,
     fontFamily: 'sans-serif-condensed',
     color: 'black',
-    textAlign: 'center',
-    margin: 15,
   },
   button: {
     padding: 20,
