@@ -14,21 +14,24 @@ import com.facebook.react.uimanager.events.RCTEventEmitter;
 
 public class CounterView extends FrameLayout implements View.OnClickListener {
 
-  private int count;
-
+  private ReactContext reactContext;
   private TextView mCountTextView;
+
+  private int count;
 
   public CounterView(Context context) {
     super(context);
+    reactContext = (ReactContext) context;
     count = 0;
   }
 
   public CounterView(Context context, Activity activity) {
     super(context);
+    reactContext = (ReactContext) context;
     count = 0;
 
     FrameLayout counterLayout = (FrameLayout) activity.getLayoutInflater().inflate(R.layout.counter, null);
-    counterLayout.setOnClickListener(CounterView.this);
+    counterLayout.setOnClickListener(this);
     this.addView(counterLayout);
 
     mCountTextView = counterLayout.findViewById(R.id.count_tv);
@@ -47,7 +50,6 @@ public class CounterView extends FrameLayout implements View.OnClickListener {
     WritableMap event = Arguments.createMap();
     event.putInt("count", count);
 
-    ReactContext reactContext = (ReactContext) getContext();
     reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
       getId(),
       "onCountChange",

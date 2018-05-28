@@ -12,7 +12,7 @@ import {
 
 import CustomCounter from './CustomCounter';
 
-class Main extends React.Component {
+class App extends React.Component {
 
   _showToast = () => NativeModules.Toast.show(
     'Here is a native toast!',
@@ -90,4 +90,4 @@ const styles = StyleSheet.create({
   },
 })
 
-AppRegistry.registerComponent('TheNativeParts', () => Main)
+AppRegistry.registerComponent('TheNativeParts', () => App)
