@@ -1,11 +1,7 @@
 package com.example.rn.thenativeparts;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.KeyEvent;
 
 import com.example.rn.thenativeparts.communication.CommunicationPackage;
@@ -30,14 +26,6 @@ public class ReactActivity extends Activity implements DefaultHardwareBackBtnHan
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-      if (!Settings.canDrawOverlays(ReactActivity.this)) {
-        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-          Uri.parse("package:" + getPackageName()));
-        startActivity(intent);
-      }
-    }
 
     List<ReactPackage> packages = new ArrayList<>();
     packages.add(new MainReactPackage());
