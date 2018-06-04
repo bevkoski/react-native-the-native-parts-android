@@ -37,4 +37,4 @@ Once Android Studio loads, click the green "Run" button.
 
 ## How it works
 
-Check out [this Medium article](https://medium.com/@bevkoski).
+Check out [this Medium article](https://blog.netcetera.com/react-native-the-native-parts-android-edition-42b480f10170).
